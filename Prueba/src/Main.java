@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static String soy_gay;
+    private static String soy_cande;
 
     public static void main(String[] args) {
         Libro l1 = new Libro(1, 234, "tornado", "mili", true);
@@ -13,7 +13,10 @@ public class Main {
 
         // ArrayList para dar de alta libros
         ArrayList<Libro> lista = new ArrayList<>();
-
+        lista.add(l1);
+        lista.add(l2);
+        lista.add(l3);
+        lista.add(l4);
         Scanner sc = new Scanner(System.in);
         int opcion, Id;
         System.out.println("opciones: ");
@@ -22,24 +25,24 @@ public class Main {
         while (opcion != 7) {
             switch (opcion) {
                 case 1:
-                    System.out.println(l1.mostrarDatos());
-                    System.out.println(l2.mostrarDatos());
-                    System.out.println(l3.mostrarDatos());
-                    System.out.println(l4.mostrarDatos());
+                    System.out.println(lista.get(0).mostrarDatos());
+                    System.out.println(lista.get(1).mostrarDatos());
+                    System.out.println(lista.get(2).mostrarDatos());
+                    System.out.println(lista.get(3).mostrarDatos());
 
                     break;
                 case 2:
                     System.out.println("ingrtese el id del libro");
                     Id = sc.nextInt();
                     sc.nextLine();
-                    if (Id == l1.id) {
-                        System.out.println(l1.toString());
-                    } else if (Id == l2.id) {
-                        System.out.println(l2.toString());
-                    } else if (Id == l3.id) {
-                        System.out.println(l3.toString());
+                    if (Id == lista.get(0).id) {
+                        System.out.println(lista.get(0).toString());
+                    } else if (Id == lista.get(1).id) {
+                        System.out.println(lista.get(1).toString());
+                    } else if (Id == lista.get(2).id) {
+                        System.out.println(lista.get(2).toString());
                     } else {
-                        System.out.println(l4.toString());
+                        System.out.println(lista.get(3).toString());
                     }
 
                     break;
@@ -47,26 +50,26 @@ public class Main {
                     System.out.println("ingrtese el id del libro");
                     Id = sc.nextInt();
                     sc.nextLine();
-                    if (Id == l1.id) {
-                        if (l1.prestado) {
+                    if (Id == lista.get(0).id) {
+                        if (lista.get(0).prestado) {
                             System.out.println("fue prestado");
                         } else {
                             System.out.println("esta disponible");
                         }
-                    } else if (Id == l2.id) {
-                        if (l2.prestado) {
+                    } else if (Id == lista.get(1).id) {
+                        if (lista.get(1).prestado) {
                             System.out.println("fue prestado");
                         } else {
                             System.out.println("esta disponible");
                         }
-                    } else if (Id == l3.id) {
-                        if (l3.prestado) {
+                    } else if (Id == lista.get(2).id) {
+                        if (lista.get(2).prestado) {
                             System.out.println("fue prestado");
                         } else {
                             System.out.println("esta disponible");
                         }
                     } else {
-                        if (l4.prestado) {
+                        if (lista.get(3).prestado) {
                             System.out.println("fue prestado");
                         } else {
                             System.out.println("esta disponible");
@@ -78,29 +81,29 @@ public class Main {
                     System.out.println("ingrtese el id del libro");
                     Id = sc.nextInt();
                     sc.nextLine();
-                    if (Id == l1.id) {
-                        if (l1.prestado) {
-                            l1.prestado = false;
+                    if (Id == lista.get(0).id) {
+                        if (lista.get(0).prestado) {
+                            lista.get(0).prestado = false;
                         } else {
-                            l1.prestado = true;
+                            lista.get(0).prestado = true;
                         }
-                    } else if (Id == l2.id) {
-                        if (l2.prestado) {
-                            l2.prestado = false;
+                    } else if (Id == lista.get(1).id) {
+                        if (lista.get(1).prestado) {
+                            lista.get(1).prestado = false;
                         } else {
-                            l2.prestado = true;
+                            lista.get(1).prestado = true;
                         }
-                    } else if (Id == l3.id) {
-                        if (l3.prestado) {
-                            l3.prestado = false;
+                    } else if (Id == lista.get(2).id) {
+                        if (lista.get(2).prestado) {
+                           lista.get(2).prestado = false;
                         } else {
-                            l3.prestado = true;
+                            lista.get(2).prestado = true;
                         }
                     } else {
-                        if (l4.prestado) {
-                            l4.prestado = false;
+                        if (lista.get(3).prestado) {
+                            lista.get(3).prestado = false;
                         } else {
-                            l4.prestado = true;
+                            lista.get(3).prestado = true;
                         }
                     }
 
@@ -112,38 +115,38 @@ public class Main {
                     sc.nextLine();
                     Id2 = sc.nextInt();
                     sc.nextLine();
-                    if (Id == l1.id && Id2 == l2.id) {
-                        if (l1.pag > l2.pag) {
+                    if (Id == lista.get(0).id && Id2 == lista.get(1).id) {
+                        if (lista.get(0).pag > lista.get(1).pag) {
                             System.out.println("el primero es mas extenso");
                         } else {
                             System.out.println("el segundo es mas extenso");
                         }
-                    } else if (Id == l1.id && Id2 == l3.id) {
-                        if (l1.pag > l3.pag) {
+                    } else if (Id == lista.get(0).id && Id2 == lista.get(2).id) {
+                        if (lista.get(0).pag > lista.get(2).pag) {
                             System.out.println("el primero es mas extenso");
                         } else {
                             System.out.println("el segundo es mas extenso");
                         }
-                    } else if (Id == l1.id && Id2 == l4.id) {
-                        if (l1.pag > l4.pag) {
+                    } else if (Id == lista.get(0).id && Id2 == lista.get(3).id) {
+                        if (lista.get(0).pag > lista.get(3).pag) {
                             System.out.println("el primero es mas extenso");
                         } else {
                             System.out.println("el segundo es mas extenso");
                         }
-                    } else if (Id == l2.id && Id2 == l3.id) {
-                        if (l2.pag > l3.pag) {
+                    } else if (Id == lista.get(1).id && Id2 == lista.get(2).id) {
+                        if (lista.get(1).pag > lista.get(2).pag) {
                             System.out.println("el primero es mas extenso");
                         } else {
                             System.out.println("el segundo es mas extenso");
                         }
-                    } else if (Id == l2.id && Id2 == l4.id) {
-                        if (l2.pag > l4.pag) {
+                    } else if (Id == lista.get(1).id && Id2 == lista.get(3).id) {
+                        if (lista.get(1).pag > lista.get(3).pag) {
                             System.out.println("el primero es mas extenso");
                         } else {
                             System.out.println("el segundo es mas extenso");
                         }
-                    } else if (Id == l3.id && Id2 == l4.id) {
-                        if (l3.pag > l4.pag) {
+                    } else if (Id == lista.get(2).id && Id2 == lista.get(3).id) {
+                        if (lista.get(2).pag > lista.get(3).pag) {
                             System.out.println("el primero es mas extenso");
                         } else {
                             System.out.println("el segundo es mas extenso");
@@ -180,12 +183,12 @@ public class Main {
         }
         System.out.println("chau");
 
-        System.out.println("escribi soy gay");
-        soy_gay = sc.nextLine();
-        if (soy_gay.equals("soy gay")) {
+        System.out.println("cande");
+        soy_cande = sc.nextLine();
+        if (soy_cande.equals("soy cande")) {
             System.out.println("mentiroso");
         } else {
-            System.out.println("AJSajsjjajsjajjasjj gay de mrd");
+            System.out.println(" soy cande");
         }
     }
 }
